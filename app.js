@@ -5,7 +5,13 @@ var io = require('socket.io').listen(server);
 users = [];
 connections = [];
 
-server.listen(process.env.PORT || 3000);
+// server.listen(process.env.PORT || 3000);
+var spawn = require('child_process').spawn;
+server.listen(0,"localhost", function(err) {
+    if(err) throw err;
+    spawn("open",["http://localhost:"+server.address().port+"/"])
+});
+
 
 console.log('Server running ..');
 
