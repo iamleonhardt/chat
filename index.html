@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Chat</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
+    <!--<link rel="stylesheet" href="style.css">-->
     <style>
         body{
             margin: 30px 0 0 0;
@@ -33,12 +33,13 @@
             <div class="col-md-8">
                 <div class="chat" id="chat"></div>
 
-                <form id="messageForm"></form>
-                <div class="form-group">
-                    <label>Enter Message</label>
-                    <textare class="form-control" id="message"></textare><br>
-                    <input type="submit" class="btn btn-primary" value="Send Message">
-                </div>
+                <form id="messageForm">
+                    <div class="form-group">
+                        <label>Enter Message</label>
+                        <textarea class="form-control" id="message"></textarea><br>
+                        <input type="submit" class="btn btn-primary" value="Send Message">
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -46,7 +47,20 @@
     <script>
         $(function(){
             var socket = io.connect();
-        })
+            var $messageForm = $('#messageForm');
+            var $message = $('#message');
+            var $chat = $('#chat');
+
+            $messageForm.submit(function(e){
+                e.preventDefault();
+                socket.emit('send message', $message.val());
+                $message.val('');
+            });
+
+            socket.on('new message', function(data){
+                $chat.append('<div class="well">' + data.msg + '</div>');
+            });
+        });
     </script>
 </body>
 </html>
