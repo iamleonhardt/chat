@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Chat</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body{
+            margin: 30px 0 0 0;
+        }
+
+
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <!--sidebar-->
+            <div class="col-md-4">
+                <div class="well">
+                    <h3>Online Users</h3>
+                    <ul class="list-group" id="users"></ul>
+                </div>
+            </div>
+            <!--main chat-->
+            <div class="col-md-8">
+                <div class="chat" id="chat"></div>
+
+                <form id="messageForm"></form>
+                <div class="form-group">
+                    <label>Enter Message</label>
+                    <textare class="form-control" id="message"></textare><br>
+                    <input type="submit" class="btn btn-primary" value="Send Message">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(function(){
+            var socket = io.connect();
+        })
+    </script>
+</body>
+</html>
