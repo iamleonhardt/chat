@@ -6,11 +6,13 @@ users = [];
 connections = [];
 
 // server.listen(process.env.PORT || 3000);
-var spawn = require('child_process').spawn;
-server.listen(0,"localhost", function(err) {
-    if(err) throw err;
-    spawn("open",["http://localhost:"+server.address().port+"/"])
-});
+server.listen(8080);
+
+// var spawn = require('child_process').spawn;
+// server.listen(0,"localhost", function(err) {
+//     if(err) throw err;
+//     spawn("open",["http://localhost:"+server.address().port+"/"])
+// });
 
 
 console.log('Server running ..');
