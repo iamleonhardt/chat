@@ -5,15 +5,7 @@ var io = require('socket.io').listen(server);
 users = [];
 connections = [];
 
-// server.listen(process.env.PORT || 3000);
-server.listen(8080);
-
-// var spawn = require('child_process').spawn;
-// server.listen(0,"localhost", function(err) {
-//     if(err) throw err;
-//     spawn("open",["http://localhost:"+server.address().port+"/"])
-// });
-
+server.listen(process.env.PORT || 3000);
 
 console.log('Server running ..');
 
@@ -23,8 +15,6 @@ app.get('/', function(req, res){
 
 
 // io sockets
-
-
 io.sockets.on('connection', function(socket){
     connections.push(socket);
     console.log('Connected: %s sockets connected', connections.length);
