@@ -19,7 +19,7 @@ connections = [];
 
 
 
-server.listen(process.env.PORT || 8080);
+server.listen(process.env.PORT || 3000);
 console.log('Server started');
 
 app.get('/', function(req, res){
