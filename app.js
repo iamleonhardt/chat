@@ -6,8 +6,7 @@ users = [];
 connections = [];
 
 server.listen(process.env.PORT || 3000);
-
-console.log('Server running ..');
+console.log('Server started');
 
 app.get('/', function(req, res){
     res.sendFile(__dirname + '/index.html');
