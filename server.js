@@ -1,21 +1,21 @@
-// var express = require('express');
-// var app = express();
-// var server = require('http').createServer(app);
-// var io = require('socket.io').listen(server);
-
-
-var express = require('express')
-    , http = require('http');
+var express = require('express');
 var app = express();
-var server = http.createServer(app);
+var server = require('http').createServer(app);
 var io = require('socket.io').listen(server);
+
+//
+// var express = require('express')
+//     , http = require('http');
+// var app = express();
+// var server = http.createServer(app);
+// var io = require('socket.io').listen(server);
 
 
 users = [];
 connections = [];
 
 
-server.listen(process.env.PORT || 3000);
+server.listen(process.env.PORT || 80);
 console.log('Server started');
 
 app.get('/', function(req, res){
